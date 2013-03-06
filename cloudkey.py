@@ -435,7 +435,7 @@ class MediaObject(ClientObject):
         url = '%s/stream/%s/%s.mov' % (self._client._base_url, self._client._user_id, id)
         return sign_url(url, self._client._api_key, seclevel=seclevel, asnum=asnum, ip=ip, useragent=useragent, countries=countries, referers=referers, expires=expires)
 
-    def get_stream_url(self, id, asset_name='mp4_h264_aac', seclevel=None, asnum=None, ip=None, useragent=None, countries=None, referers=None, expires=None, download=False, filename=None, version=None, protocol=None, cdn_url='http://cdn.dmcloud.net'):
+    def get_stream_url(self, id, asset_name='mp4_h264_aac', seclevel=None, asnum=None, ip=None, useragent=None, countries=None, referers=None, expires=None, download=True, filename=None, version=None, protocol=None, cdn_url='http://cdn.dmcloud.net'):
         if type(id) not in (str, unicode):
             raise InvalidParameter('id is not valid')
         if protocol not in (None, 'hls', 'rtmp', 'hps', 'http', 'ss', 'hds'):
